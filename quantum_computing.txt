@@ -1,0 +1,77 @@
+Quantum Computing: Principles, Hardware, and the Road to Quantum Advantage
+
+Quantum computing is a fundamentally different model of computation that exploits the principles of quantum mechanics to process information. Unlike classical computers, which represent information as bits that are either 0 or 1, quantum computers use quantum bits — qubits — that can exist in a superposition of 0 and 1 simultaneously. This, combined with entanglement and interference, allows quantum computers to explore many computational paths at once and solve certain classes of problems exponentially faster than the best known classical algorithms.
+
+THE PHYSICS BEHIND QUANTUM COMPUTING
+
+Superposition is the quantum mechanical property by which a qubit can be in a combination of the states |0⟩ and |1⟩ at the same time. Mathematically, a single qubit's state is written as α|0⟩ + β|1⟩, where α and β are complex probability amplitudes satisfying |α|² + |β|² = 1. When measured, the qubit collapses to either |0⟩ with probability |α|² or |1⟩ with probability |β|². Before measurement, however, the qubit participates in quantum computations as if it were in both states at once.
+
+Entanglement is a correlation between qubits that has no classical analogue. Two qubits are entangled when the state of one cannot be described independently of the other, regardless of the physical distance between them. A measurement on one entangled qubit instantly determines the outcome of a measurement on the other. Entanglement is a resource that quantum algorithms exploit to create coordinated, non-classical correlations across many qubits simultaneously.
+
+Quantum interference allows quantum algorithms to amplify computational paths leading to correct answers and cancel paths leading to wrong answers. A quantum computation proceeds as a series of quantum gates that manipulate amplitudes. At the end of the computation, interference has arranged things so that measuring the qubits is likely to yield the correct answer. Without interference, quantum computation would offer no advantage over classical randomized computation.
+
+Decoherence is the main enemy of quantum computation. When a qubit interacts with its environment — thermal noise, electromagnetic radiation, vibrations — its quantum state collapses in an uncontrolled way, destroying the superposition and entanglement that the computation relies on. Maintaining qubit coherence long enough to execute meaningful computations is the central engineering challenge of the field.
+
+QUBIT TECHNOLOGIES
+
+Superconducting qubits are the most mature platform for quantum computing. They consist of tiny electrical circuits cooled to temperatures near absolute zero (around 15 millikelvin, colder than outer space) where they exhibit quantum behavior. Josephson junctions — thin insulating barriers between superconducting materials — create the non-linearity needed for qubit operation. Companies such as IBM, Google, and Rigetti use superconducting qubits. Google's Sycamore processor, with 53 superconducting qubits, performed a specific sampling task in 200 seconds in 2019 that Google claimed would take the world's fastest classical supercomputer 10,000 years, marking the first claim of quantum supremacy.
+
+Trapped ion qubits use individual ions (electrically charged atoms) suspended in electromagnetic fields and manipulated with lasers. Ions have very long coherence times and can achieve extremely high-fidelity gate operations. Companies such as IonQ and Quantinuum (formerly Cambridge Quantum) build trapped ion systems. The main challenge is scaling: adding more ions to the trap and connecting multiple traps is technically difficult.
+
+Photonic qubits encode quantum information in photons — particles of light. Photons travel at the speed of light and interact weakly with the environment, making them ideal for low-decoherence quantum communication. However, implementing two-qubit gates between photons is probabilistic and requires complex optical circuitry. PsiQuantum is building a photonic quantum computer using silicon photonics chip fabrication.
+
+Neutral atom qubits use arrays of individual atoms (typically rubidium or cesium) held in place by focused laser beams called optical tweezers. Two-qubit gates are implemented using highly excited Rydberg states. Neutral atom platforms have demonstrated arrays of hundreds of qubits. Companies such as Atom Computing and QuEra are developing this approach.
+
+Topological qubits, pursued most aggressively by Microsoft, aim to encode quantum information in non-Abelian anyons — exotic quasi-particles that exist only in certain two-dimensional materials. Topological qubits are theoretically far more resistant to decoherence than other approaches, but the underlying physics has proven extremely difficult to realize experimentally.
+
+QUANTUM GATES AND CIRCUITS
+
+A quantum gate is a unitary operation that transforms the state of one or more qubits. Single-qubit gates are represented by 2×2 unitary matrices. The Pauli gates X, Y, and Z rotate the qubit state around the corresponding axes of the Bloch sphere. The Hadamard gate creates an equal superposition of |0⟩ and |1⟩. The phase gate S and the T gate introduce phase shifts.
+
+The CNOT (Controlled-NOT) gate is the canonical two-qubit gate. It flips the target qubit if and only if the control qubit is |1⟩. Together with single-qubit gates, CNOT gates form a universal gate set, meaning any quantum computation can be decomposed into these operations.
+
+A quantum circuit is a sequence of gates applied to a register of qubits, followed by measurements. Circuit depth (number of sequential gate layers) is a key metric, because deeper circuits are more susceptible to errors from decoherence. Circuit width (number of qubits) determines the problem size the circuit can address.
+
+LANDMARK QUANTUM ALGORITHMS
+
+Shor's algorithm, published by Peter Shor in 1994, can factor large integers in polynomial time on a quantum computer. Factoring is the mathematical foundation of RSA encryption, used to secure most internet communication. A large enough quantum computer running Shor's algorithm could break RSA encryption, which is why post-quantum cryptography — designing encryption schemes resistant to quantum attacks — has become a major research priority. The National Institute of Standards and Technology (NIST) finalized the first post-quantum cryptographic standards in 2024.
+
+Grover's algorithm, developed by Lov Grover in 1996, searches an unsorted database of N entries in O(√N) time, compared to O(N) for the best classical algorithm. This quadratic speedup applies broadly to any problem that can be framed as searching over a set of possible solutions. Grover's algorithm also has implications for the security of symmetric encryption — a 128-bit key that is secure against classical attack would offer only 64-bit security against a quantum computer using Grover's algorithm.
+
+The Quantum Approximate Optimization Algorithm (QAOA) is a variational algorithm designed to find approximate solutions to combinatorial optimization problems such as Max-Cut, graph coloring, and traveling salesman variants. QAOA alternates between two parameterized quantum operations and uses classical optimization to tune the parameters. It is one of the main candidates for near-term quantum advantage on practical optimization problems.
+
+Variational Quantum Eigensolvers (VQE) estimate the ground state energy of a quantum system — a problem of central importance in chemistry and materials science. VQE prepares a parameterized quantum state (called an ansatz), measures its energy, and uses classical optimization to minimize it. VQE is designed for noisy intermediate-scale quantum (NISQ) devices because it uses shallow circuits.
+
+Quantum simulation uses a quantum computer to simulate other quantum systems, as Feynman famously proposed in 1982. Simulating molecules and materials with quantum computers could revolutionize drug discovery (by accurately computing molecular binding energies), battery design (by modeling electrolyte chemistry), and materials science (by predicting superconductor behavior). Classical computers cannot efficiently simulate large quantum systems because the memory required grows exponentially with system size.
+
+NISQ ERA AND QUANTUM ADVANTAGE
+
+The current generation of quantum computers — operating with tens to hundreds of noisy qubits — is described as Noisy Intermediate-Scale Quantum (NISQ) devices. NISQ devices are too noisy and too small to run fault-tolerant quantum algorithms like Shor's at scale. The central question is whether NISQ devices can demonstrate quantum advantage on any practically useful problem.
+
+The term quantum supremacy (or quantum advantage) refers to performing a task faster on a quantum computer than on any classical computer. Google's 2019 supremacy claim was contested by IBM, which argued that improved classical algorithms could simulate the same task much faster. Subsequent work by Chinese researchers using the Jiuzhang photonic computer and the Zuchongzhi superconducting processor has added further data points, but the definition and practical significance of supremacy experiments remain debated.
+
+QUANTUM ERROR CORRECTION
+
+Physical qubits are noisy. Quantum error correction (QEC) encodes one logical qubit into many physical qubits, using redundancy to detect and correct errors without disturbing the logical quantum state. The surface code is the leading QEC scheme. It arranges physical qubits in a two-dimensional grid and uses repeated measurements of stabilizer operators to detect errors. The threshold theorem states that if the physical error rate is below a certain threshold (roughly 1% for the surface code), then arbitrarily long computations can be performed reliably by using enough physical qubits.
+
+In practice, achieving fault-tolerant quantum computation requires roughly 1,000 physical qubits per logical qubit, meaning a fault-tolerant processor capable of running Shor's algorithm to break 2048-bit RSA encryption would require on the order of 4 million physical qubits. Current processors have at most a few thousand physical qubits, many of them too noisy to be useful for QEC. Reaching fault tolerance is the primary long-term engineering goal of quantum computing.
+
+Microsoft recently reported experimental evidence of topological qubits with error rates low enough for error correction. IBM's roadmap targets utility-scale quantum computing by the mid-2020s and fault-tolerant computing in the 2030s. Google has announced a roadmap toward a million-qubit fault-tolerant machine.
+
+QUANTUM NETWORKING AND CRYPTOGRAPHY
+
+Quantum key distribution (QKD) uses quantum mechanics to distribute cryptographic keys with security guaranteed by physical law rather than computational hardness. The BB84 protocol, proposed by Charles Bennett and Gilles Brassard in 1984, encodes key bits in the polarization of photons. Any eavesdropper disturbs the quantum state in a detectable way. QKD has been demonstrated over fiber-optic cables and via satellite links. China's Micius satellite established QKD links over distances exceeding 1,000 kilometers.
+
+A quantum internet would connect quantum computers and quantum sensors using quantum channels, enabling distributed quantum computation, blind quantum computing (running a computation on a remote quantum computer without revealing the input), and clock synchronization of unprecedented accuracy.
+
+QUANTUM SENSING
+
+Quantum sensors exploit quantum coherence and entanglement to achieve measurement precision beyond classical limits. Atomic clocks based on optical transitions in strontium or ytterbium are the most accurate timekeepers ever built, losing less than one second in billions of years. Quantum gravimeters detect tiny variations in gravitational acceleration, useful for oil exploration, earthquake monitoring, and underground mapping. Quantum magnetometers can image the faint magnetic fields produced by brain activity without the need for superconducting coils.
+
+THE QUANTUM WORKFORCE AND INDUSTRY
+
+The global quantum computing industry attracted over $35 billion in public and private investment between 2019 and 2024. The United States, China, the European Union, the United Kingdom, Canada, and Australia have all launched national quantum strategies. IBM has a publicly accessible cloud quantum platform used by millions of researchers and developers. Amazon Web Services, Microsoft Azure, and Google Cloud offer access to quantum hardware and quantum-classical hybrid computing environments.
+
+Universities worldwide have established quantum computing degree programs and research centers. The field draws on physics, mathematics, computer science, electrical engineering, and materials science. A new generation of quantum software engineers is learning to program quantum circuits using frameworks such as Qiskit (IBM), Cirq (Google), PennyLane (Xanadu), and Q# (Microsoft).
+
+Quantum computing will not replace classical computing. It will complement it, handling specific problem types — optimization, simulation, cryptography, machine learning inference — where quantum algorithms provide provable or practical speedups. The integration of classical and quantum processors into hybrid architectures is already underway and will define the near-term development of the field.
